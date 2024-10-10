@@ -53,6 +53,14 @@ pipeline {
                 sh 'kubectl version'
             }
         }
+        // deploying app using deploy and expose using service 
+        stage('deploy yaml files'){
+            steps {
+                echo 'using kubectl to deploy'
+                sh 'kubectl apply -f deploy1.yaml -f service.yaml'
+                sh 'kubectl get deploy,pod,service'
+            }
+        }
 
     }
 }
