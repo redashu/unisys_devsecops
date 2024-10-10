@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashu-tomcat
+  name: ashu-tomcat
+spec:
+  replicas: 2 # number of pods 
+  selector:
+    matchLabels:
+      app: ashu-tomcat
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashu-tomcat
+    spec:
+      containers:
+      - image: dockerashu/ashujava:tomcatdeploy5
+        name: ashujava
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

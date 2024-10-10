@@ -45,6 +45,14 @@ pipeline {
             }
             
         }
+        // testing kubectl connection 
+        stage('checking connection with kubectl to AKS'){
+            steps {
+                echo 'kubectl version using it'
+                sh 'kubectl get nodes'
+                sh 'kubectl version'
+            }
+        }
 
     }
 }
