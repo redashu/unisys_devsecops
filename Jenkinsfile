@@ -61,6 +61,13 @@ pipeline {
                 sh 'kubectl get deploy,pod,service'
             }
         }
+        // app upgrade
+        stage('upgrade'){
+            steps {
+                echo 'upgrading to current iamge'
+                sh 'kubectl set image deployment ashu-tomcat ashujava=dockerashu/ashujava:tomcatdeploy$BUILD_NUMBER'
+            }
+        }
 
     }
 }
